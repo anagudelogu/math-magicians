@@ -1,4 +1,4 @@
-:root{
+:root {
   --light-gray: hsl(28, 29%, 80%);
   --orange: hsl(25, 55%, 52%);
   --dark-gray: hsl(0, 0%, 41%);
@@ -27,11 +27,11 @@ a:active {
   color: inherit;
 }
 
-body{
+body {
   background-color: var(--dark-orange);
 }
 
-.App{
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,16 +39,16 @@ body{
   padding: 1rem;
 }
 
-.calculator{
+.calculator {
   width: 100%;
   min-width: 288px;
   max-width: 400px;
   border-radius: 12px;
   background-color: var(--dark-orange);
-  box-shadow: 0px 2px 64px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 64px rgba(0, 0, 0, 0.2);
 }
 
-.calculator__display{
+.calculator__display {
   padding: 1rem;
   text-align: right;
   background-color: var(--dark-gray);
@@ -57,16 +57,16 @@ body{
   border-top-right-radius: 12px;
 }
 
-.calculator__temp{
+.calculator__temp {
   font-size: 0.8rem;
   color: hsl(0, 0%, 81%);
 }
 
-.calculator__value{
+.calculator__value {
   font-size: 1.5rem;
 }
 
-.calculator__keypad{
+.calculator__keypad {
   max-height: 100%;
   display: grid;
   border-radius: 12px;
@@ -74,43 +74,42 @@ body{
   grid-template-rows: repeat(5, 1fr);
 }
 
-.btn{
+.btn {
   cursor: pointer;
   font-size: 1rem;
   appearance: none;
-  border: none;
   outline: none;
   padding: 1rem;
   min-width: 70px;
-  border: 0.1px solid rgb(224, 224, 224);
+  border: 0.1px solid hsl(0, 0%, 88%);
 }
 
-.operation__btn{
+.operation__btn {
   background-color: var(--orange);
 }
 
-.operations.right{
+.operations.right {
   grid-area: 1/4/6/5;
 }
 
-.operations.right button{
+.operations.right button {
   width: 100%;
 }
 
-.operations.main{
+.operations.main {
   grid-area: 1/1/2/4;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.digits{
+.digits {
   grid-area: 2/1/6/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
 }
 
-.digits :nth-last-child(2){
+.digits :nth-last-child(2) {
   grid-area: 4/1/5/3;
   border-bottom-left-radius: 12px;
 }

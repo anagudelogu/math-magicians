@@ -5,12 +5,22 @@ export default class Button extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    const { handleClick } = this.props;
+    handleClick(e.target.innerText);
   }
 
   render() {
     const { classN, value } = this.props;
     return (
-      <button type="button" className={classN}>
+      <button
+        type="button"
+        className={classN}
+        onClick={this.handleClick}
+      >
         {value}
       </button>
     );
@@ -20,9 +30,11 @@ export default class Button extends Component {
 Button.propTypes = {
   classN: PropTypes.string,
   value: PropTypes.string,
+  handleClick: PropTypes.func,
 };
 
 Button.defaultProps = {
   classN: 'btn',
   value: undefined,
+  handleClick: () => {},
 };

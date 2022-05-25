@@ -47,9 +47,7 @@ export default class Calculator extends React.Component {
 
           <div className="digits">
             {this.createDigits()}
-            <button type="button" className="btn digits__btn">
-              .
-            </button>
+            <Button classN="btn digits__btn" value="." />
           </div>
         </div>
       </div>

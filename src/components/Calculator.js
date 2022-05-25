@@ -1,11 +1,31 @@
-/* eslint-disable class-methods-use-this */
-
 import React from 'react';
+import Button from './Button';
 
 export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.operationsRight = ['÷', 'x', '-', '+', '='];
+    this.operationsCenter = ['AC', '+/-', '%'];
+  }
+
+  createDigits() {
+    this.digits = [];
+
+    for (let i = 0; i < 10; i += 1) {
+      this.digits.push(<Button classN="btn digits__btn" value={i} />);
+    }
+    return this.digits;
+  }
+
+  createOperations(operations) {
+    this.operationsArr = [];
+    operations.forEach((operation) => {
+      this.operationsArr.push(
+        <Button classN="btn operation__btn" value={operation} />,
+      );
+    });
+    return this.operationsArr;
   }
 
   render() {
@@ -18,70 +38,16 @@ export default class Calculator extends React.Component {
 
         <div className="calculator__keypad">
           <div className="operations right">
-            <button type="button" className="btn operation__btn">
-              ÷
-            </button>
-            <button type="button" className="btn operation__btn">
-              x
-            </button>
-            <button type="button" className="btn operation__btn">
-              -
-            </button>
-            <button type="button" className="btn operation__btn">
-              +
-            </button>
-            <button type="button" className="btn operation__btn">
-              =
-            </button>
+            {this.createOperations(this.operationsRight)}
           </div>
 
-          <div className="operations main">
-            <button type="button" className="btn operation__btn">
-              AC
-            </button>
-            <button type="button" className="btn operation__btn">
-              +/-
-            </button>
-            <button type="button" className="btn operation__btn">
-              %
-            </button>
+          <div className="operations center">
+            {this.createOperations(this.operationsCenter)}
           </div>
 
           <div className="digits">
-            <button type="button" className="btn digits__btn">
-              1
-            </button>
-            <button type="button" className="btn digits__btn">
-              2
-            </button>
-            <button type="button" className="btn digits__btn">
-              3
-            </button>
-            <button type="button" className="btn digits__btn">
-              4
-            </button>
-            <button type="button" className="btn digits__btn">
-              5
-            </button>
-            <button type="button" className="btn digits__btn">
-              6
-            </button>
-            <button type="button" className="btn digits__btn">
-              7
-            </button>
-            <button type="button" className="btn digits__btn">
-              8
-            </button>
-            <button type="button" className="btn digits__btn">
-              9
-            </button>
-            <button type="button" className="btn digits__btn">
-              0
-            </button>
-
-            <button type="button" className="btn digits__btn">
-              .
-            </button>
+            {this.createDigits()}
+            <Button classN="btn digits__btn" value="." />
           </div>
         </div>
       </div>

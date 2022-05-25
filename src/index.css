@@ -96,7 +96,7 @@ body {
   width: 100%;
 }
 
-.operations.main {
+.operations.center {
   grid-area: 1/1/2/4;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -109,7 +109,7 @@ body {
   grid-template-rows: auto;
 }
 
-.digits :nth-last-child(2) {
+.digits :nth-child(1) {
   grid-area: 4/1/5/3;
   border-bottom-left-radius: 12px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import calculate from '../js/calculate';
+import calculate from '../logic/calculate';
 import Button from './Button';
 
 export default class Calculator extends React.Component {

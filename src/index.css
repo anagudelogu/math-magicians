@@ -57,13 +57,8 @@ body {
   border-top-right-radius: 12px;
 }
 
-.calculator__temp {
-  font-size: 0.8rem;
-  color: hsl(0, 0%, 81%);
-}
-
 .calculator__value {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .calculator__keypad {

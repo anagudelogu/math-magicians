@@ -6,15 +6,21 @@ export default class Calculator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      calc: {},
+    };
+    this.operationsRight = ['÷', 'x', '-', '+', '='];
+    this.operationsCenter = ['AC', '+/-', '%'];
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
       calc: {
         total: null,
         next: null,
         operation: null,
       },
-    };
-    this.operationsRight = ['÷', 'x', '-', '+', '='];
-    this.operationsCenter = ['AC', '+/-', '%'];
-    this.handleClick = this.handleClick.bind(this);
+    });
   }
 
   handleClick(buttonName) {
@@ -29,6 +35,7 @@ export default class Calculator extends React.Component {
     for (let i = 0; i < 10; i += 1) {
       this.digits.push(
         <Button
+          key={`${i}`}
           classN="btn digits__btn"
           value={`${i}`}
           handleClick={this.handleClick}
@@ -43,6 +50,7 @@ export default class Calculator extends React.Component {
     operations.forEach((operation) => {
       this.operationsArr.push(
         <Button
+          key={operation}
           classN="btn operation__btn"
           value={operation}
           handleClick={this.handleClick}

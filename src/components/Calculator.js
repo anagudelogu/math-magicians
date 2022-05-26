@@ -1,96 +1,82 @@
-import React from 'react';
+import React, { useState } from 'react';
 import calculate from '../logic/calculate';
 import Button from './Button';
 
-export default class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      calc: {},
-    };
-    this.operationsRight = ['÷', 'x', '-', '+', '='];
-    this.operationsCenter = ['AC', '+/-', '%'];
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Calculator = () => {
+  const OPERATIONS_RIGHT = ['÷', 'x', '-', '+', '='];
+  const OPERATIONS_CENTER = ['AC', '+/-', '%'];
+  const DIGITS = [
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '.',
+  ];
 
-  componentDidMount() {
-    this.setState({
-      calc: {
-        total: null,
-        next: null,
-        operation: null,
-      },
-    });
-  }
+  const [state, setState] = useState({
+    total: null,
+    next: null,
+    operation: null,
+  });
 
-  handleClick(buttonName) {
-    this.setState((state) => ({
-      calc: calculate(state.calc, buttonName),
-    }));
-  }
+  const { total, next } = state;
 
-  createDigits() {
-    this.digits = [];
+  const handleClick = (buttonName) => {
+    setState((prevState) => calculate(prevState, buttonName));
+  };
 
-    for (let i = 0; i < 10; i += 1) {
-      this.digits.push(
-        <Button
-          key={`${i}`}
-          classN="btn digits__btn"
-          value={`${i}`}
-          handleClick={this.handleClick}
-        />,
-      );
-    }
-    return this.digits;
-  }
+  const createDigits = (digits) => {
+    const digitsBtns = digits.map((digit) => (
+      <Button
+        key={`${digit}`}
+        classN="btn digits__btn"
+        value={`${digit}`}
+        handleClick={handleClick}
+      />
+    ));
+    return digitsBtns;
+  };
 
-  createOperations(operations) {
-    this.operationsArr = [];
-    operations.forEach((operation) => {
-      this.operationsArr.push(
-        <Button
-          key={operation}
-          classN="btn operation__btn"
-          value={operation}
-          handleClick={this.handleClick}
-        />,
-      );
-    });
-    return this.operationsArr;
-  }
+  const createOperations = (operations) => {
+    const operationsArr = operations.map((operation) => (
+      <Button
+        key={operation}
+        classN="btn operation__btn"
+        value={operation}
+        handleClick={handleClick}
+      />
+    ));
+    return operationsArr;
+  };
 
-  render() {
-    const { calc } = this.state;
-    const { total, next } = calc;
-    return (
-      <div className="calculator">
-        <div className="calculator__display">
-          <span className="calculator__value">
-            {' '}
-            {next || total || '0'}
-          </span>
-        </div>
-
-        <div className="calculator__keypad">
-          <div className="operations right">
-            {this.createOperations(this.operationsRight)}
-          </div>
-
-          <div className="operations center">
-            {this.createOperations(this.operationsCenter)}
-          </div>
-
-          <div className="digits">
-            {this.createDigits()}
-            <Button
-              classN="btn digits__btn"
-              value="."
-              handleClick={this.handleClick}
-            />
-          </div>
-        </div>
+  return (
+    <div className="calculator">
+      <div className="calculator__display">
+        <span className="calculator__value">
+          {' '}
+          {next || total || '0'}
+        </span>
       </div>
-    );
-  }
-}
+
+      <div className="calculator__keypad">
+        <div className="operations right">
+          {createOperations(OPERATIONS_RIGHT)}
+        </div>
+
+        <div className="operations center">
+          {createOperations(OPERATIONS_CENTER)}
+        </div>
+
+        <div className="digits">{createDigits(DIGITS)}</div>
+      </div>
+    </div>
+  );
+};
+
+export default Calculator;

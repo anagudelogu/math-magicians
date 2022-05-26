@@ -1,31 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class Button extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Button = (props) => {
+  const { handleClick, classN, value } = props;
 
-  handleClick(e) {
-    const { handleClick } = this.props;
+  const handleClickBtn = (e) => {
     handleClick(e.target.innerText);
-  }
+  };
 
-  render() {
-    const { classN, value } = this.props;
-    return (
-      <button
-        type="button"
-        className={classN}
-        onClick={this.handleClick}
-      >
-        {value}
-      </button>
-    );
-  }
-}
+  return (
+    <button type="button" className={classN} onClick={handleClickBtn}>
+      {value}
+    </button>
+  );
+};
 
 Button.propTypes = {
   classN: PropTypes.string,
@@ -38,3 +26,5 @@ Button.defaultProps = {
   value: undefined,
   handleClick: () => {},
 };
+
+export default Button;

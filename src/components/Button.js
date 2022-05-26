@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function Button(props) {
+const Button = (props) => {
   const { handleClick, classN, value } = props;
 
   const handleClickBtn = (e) => {
@@ -13,7 +13,7 @@ export default function Button(props) {
       {value}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   classN: PropTypes.string,
@@ -26,3 +26,5 @@ Button.defaultProps = {
   value: undefined,
   handleClick: () => {},
 };
+
+export default Button;

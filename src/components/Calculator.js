@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import calculate from '../logic/calculate';
 import Button from './Button';
 
-export default function Calculator() {
+const Calculator = () => {
   const OPERATIONS_RIGHT = ['÷', 'x', '-', '+', '='];
   const OPERATIONS_CENTER = ['AC', '+/-', '%'];
   const DIGITS = [
@@ -77,4 +77,6 @@ export default function Calculator() {
       </div>
     </div>
   );
-}
+};
+
+export default Calculator;

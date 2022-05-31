@@ -1,24 +1,10 @@
 import React, { useState } from 'react';
-import calculate from '../logic/calculate';
-import Button from './Button';
+import calculate from './logic/calculate';
+import Button from '../../components/Button';
+import './Calculator.css';
+import * as keys from './logic/keys';
 
 const Calculator = () => {
-  const OPERATIONS_RIGHT = ['÷', 'x', '-', '+', '='];
-  const OPERATIONS_CENTER = ['AC', '+/-', '%'];
-  const DIGITS = [
-    '0',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '.',
-  ];
-
   const [state, setState] = useState({
     total: null,
     next: null,
@@ -35,7 +21,7 @@ const Calculator = () => {
     const digitsBtns = digits.map((digit) => (
       <Button
         key={`${digit}`}
-        classN="btn digits__btn"
+        isOperation={false}
         value={`${digit}`}
         handleClick={handleClick}
       />
@@ -47,7 +33,7 @@ const Calculator = () => {
     const operationsArr = operations.map((operation) => (
       <Button
         key={operation}
-        classN="btn operation__btn"
+        isOperation
         value={operation}
         handleClick={handleClick}
       />
@@ -66,14 +52,14 @@ const Calculator = () => {
 
       <div className="calculator__keypad">
         <div className="operations right">
-          {createOperations(OPERATIONS_RIGHT)}
+          {createOperations(keys.OPERATIONS_RIGHT)}
         </div>
 
         <div className="operations center">
-          {createOperations(OPERATIONS_CENTER)}
+          {createOperations(keys.OPERATIONS_CENTER)}
         </div>
 
-        <div className="digits">{createDigits(DIGITS)}</div>
+        <div className="digits">{createDigits(keys.DIGITS)}</div>
       </div>
     </div>
   );

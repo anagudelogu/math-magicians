@@ -10,6 +10,8 @@
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
@@ -20,7 +22,8 @@
     "stylefix": "npx stylelint \"**/*.{css,scss}\" --fix",
     "style": "npx stylelint \"**/*.{css,scss}\"",
     "eslint": "npx eslint .",
-    "esfix": "npx eslint . --fix"
+    "esfix": "npx eslint . --fix",
+    "rfix": "npx eslint . --ext .jsx --fix"
   },
   "browserslist": {
     "production": [

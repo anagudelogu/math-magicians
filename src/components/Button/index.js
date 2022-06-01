@@ -5,8 +5,8 @@ import './Button.css';
 const Button = (props) => {
   const { handleClick, value, isOperation } = props;
 
-  const handleClickBtn = (e) => {
-    handleClick(e.target.innerText);
+  const handleClickBtn = () => {
+    handleClick(value);
   };
 
   return (

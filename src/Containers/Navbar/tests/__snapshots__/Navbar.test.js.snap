@@ -46,8 +46,9 @@ exports[`Navigation bar Renders correctly 1`] = `
         className="navbar__item"
       >
         <a
-          className={null}
-          href="/home"
+          aria-current="page"
+          className="active"
+          href="/"
           onClick={[Function]}
         >
           Home

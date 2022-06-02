@@ -2,7 +2,7 @@
 
 # MATH MAGICIANS
 
-[Work in progress.]
+![](https://user-images.githubusercontent.com/77069011/171663981-359863c8-8a7a-4db8-b648-438be108bb84.png)
 
 "Math magicians" is a website for all fans of mathematics. It is a Single Page App (SPA) that allows users to:
 
@@ -20,7 +20,9 @@
 
 ## Live Demo
 
-Not available at the moment.
+[Heroku](https://math-magicians-prj.herokuapp.com/)
+
+[Netlify](https://math-magicians-aag.netlify.app/)
 
 ---
 

@@ -17,6 +17,14 @@ root.render(
           <Route path="/home" element={<Home />} />
           <Route path="/Calculator" element={<Calculator />} />
           <Route path="/quote" element={<Quote />} />
+          <Route
+            path="*"
+            element={(
+              <main style={{ color: 'white', padding: '1rem' }}>
+                <p>There is nothing here!</p>
+              </main>
+            )}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

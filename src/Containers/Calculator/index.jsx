@@ -11,7 +11,7 @@ const Calculator = () => {
     operation: null,
   });
 
-  const { total, next } = state;
+  const { total, next, operation } = state;
 
   const handleClick = (buttonName) => {
     setState((prevState) => calculate(prevState, buttonName));
@@ -42,11 +42,11 @@ const Calculator = () => {
   };
 
   return (
-    <div className="calculator">
+    <div data-testid="Calculator" className="calculator">
       <div className="calculator__display">
-        <span className="calculator__value">
+        <span data-testid="value" className="calculator__value">
           {' '}
-          {next || total || '0'}
+          {next || operation || total || '0'}
         </span>
       </div>
 

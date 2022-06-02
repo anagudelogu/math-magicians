@@ -11,7 +11,7 @@ const Navbar = () => {
     {
       id: 1,
       name: 'Home',
-      route: '/home',
+      route: '/',
     },
     {
       id: 2,
@@ -46,10 +46,11 @@ const Navbar = () => {
         className="hamburger"
         onClick={handleToggle}
       >
-        {openMenu
-          ? <MdOutlineClose style={{ ...iconStyle, color: 'black' }} />
-          : <FaBars style={{ ...iconStyle, color: 'white' }} />}
-
+        {openMenu ? (
+          <MdOutlineClose style={{ ...iconStyle, color: 'black' }} />
+        ) : (
+          <FaBars style={{ ...iconStyle, color: 'white' }} />
+        )}
       </button>
       <div className={`navbar ${openMenu ? 'showMenu' : ''}`}>
         <h1 className="navbar__title"> Math Magicians</h1>

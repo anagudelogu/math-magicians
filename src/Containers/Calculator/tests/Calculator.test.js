@@ -1,6 +1,6 @@
-import Calculator from '../index';
 import renderer from 'react-test-renderer';
 import { fireEvent, render, screen } from '@testing-library/react';
+import Calculator from '../index';
 
 describe('Calculator', () => {
   it('Renders correctly', () => {
@@ -14,7 +14,7 @@ describe('Calculator', () => {
     const button = screen.getByText('7');
     const value = screen.getByTestId('value');
 
-    fireEvent.click(button, {target: {innerText: '7'}});
+    fireEvent.click(button);
 
     expect(value.textContent).toBe(` ${button.textContent}`);
   });
